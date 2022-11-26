@@ -16,6 +16,7 @@ a {
 }
 
 * {
+  /* @apply bg-slate-50; */
   box-sizing: border-box;
 }
 
@@ -24,7 +25,7 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+    color: black;
+    background: white;
   }
 }
