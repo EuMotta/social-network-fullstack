@@ -49,21 +49,19 @@ export default function HeaderScreen() {
           <HeaderIcons Icon={UserGroupIcon} />
         </div>
       </div>
-      <Direita className='gap-3 justify-end'> 
-      
+      {/* <div className='flex mr-10 justify-end'>
+        <div className='flex'>
           <p className='whitespace-nowrap text-xl  font-semibold pr-3'>José Antonio</p>
           <AppsIcon className='icon xl:inline-flex hover:bg-slate-300' />
-          <ChatIcon className='icon xl:inline-flex hover:bg-slate-300'/>
-        <Avatar className='cursor-pointer' />
-        
-      </Direita>
+          <ChatIcon className='icon xl:inline-flex hover:bg-slate-300' />
+          <Avatar className='cursor-pointer' />
+        </div>
+      </div> */}
     </div>
   )
 }
 
 const Direita = styled.div`
-display:flex;
 width:100%;
 height:80%;
-align-items:center;
 `;
