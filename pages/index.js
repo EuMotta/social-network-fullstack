@@ -2,19 +2,20 @@ import { getSession } from 'next-auth/react'
 import Head from 'next/head'
 import HeaderScreen from '../components/Header'
 import LoginScreen from '../components/Login'
+import Sidebar from '../components/Sidebar'
 
 export default function Home({session}) {
-  if(!session) return<LoginScreen/>
+  // if(!session) return<LoginScreen/>
   return (
-    <div>
+    <div className='h-screen bg-slate-100 overflow-hidden'>
       <Head>
         <title>FateCanos</title>
       </Head>
       {/* Login */}
       <HeaderScreen/>
         {/* Chat */}
-      <main>
-        {/* Sidebar/Navbar */}
+      <main className='flex'>
+         <Sidebar/>
 
         {/* children */}
         {/* widget */}

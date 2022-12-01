@@ -3,13 +3,11 @@ import React from 'react'
 import { FcSearch } from 'react-icons/fc'
 import HeaderIcons from './HeaderIcons'
 import {
-  FlagIcon,
-  PlayIcon,
   UserGroupIcon
 } from '@heroicons/react/24/outline'
-import {
-  HomeIcon
-} from '@heroicons/react/24/solid'
+// import {
+//   HomeIcon
+// } from '@heroicons/react/24/solid'
 import CottageIcon from '@mui/icons-material/Cottage';
 import AppsIcon from '@mui/icons-material/Apps';
 import OutlinedFlagTwoToneIcon from '@mui/icons-material/OutlinedFlagTwoTone';
@@ -18,6 +16,8 @@ import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import ChatIcon from '@mui/icons-material/Chat';
 import styled from 'styled-components'
 import { Avatar } from '@mui/material'
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+
 
 export default function HeaderScreen() {
   return (
@@ -49,14 +49,13 @@ export default function HeaderScreen() {
           <HeaderIcons Icon={UserGroupIcon} />
         </div>
       </div>
-      {/* <div className='flex mr-10 justify-end'>
-        <div className='flex'>
-          <p className='whitespace-nowrap text-xl  font-semibold pr-3'>José Antonio</p>
-          <AppsIcon className='icon xl:inline-flex hover:bg-slate-300' />
-          <ChatIcon className='icon xl:inline-flex hover:bg-slate-300' />
-          <Avatar className='cursor-pointer' />
-        </div>
-      </div> */}
+      <Direita className='flex gap-x-3 justify-end'>
+        <p className='whitespace-nowrap font-semibold pr-3'>José Antonio motta</p>
+        <AppsIcon className="icon xl:inline-flex hover:bg-gray-300" />
+        <ChatIcon className="icon xl:inline-flex hover:bg-gray-300" />
+        <NotificationsActiveIcon className="icon xl:inline-flex hover:bg-gray-300" />
+        <Avatar />
+      </Direita>
     </div>
   )
 }
