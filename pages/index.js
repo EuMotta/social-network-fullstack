@@ -1,14 +1,8 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import Layout from '../components/Layout'
 
 export default function Home() {
   return (
-    <div>
-      <Head>
-      </Head>
-      <div className='text-5xl'>
-        aa
-      </div>
-    </div>
+    <Layout title='Home'>
+    </Layout>
   )
 }
