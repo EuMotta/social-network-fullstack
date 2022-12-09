@@ -1,25 +1,22 @@
 import Head from 'next/head'
 import React from 'react'
-import Login from './Login'
+import Footer from './Footer'
+import Header from './Header'
 
-function Layout({ title, children }) {
+function Layout({ children, title }) {
     return (
         <>
             <Head>
                 <title> {title ? title + ' - FateCanos' : 'FateCanos'} </title>
                 <link rel='icon' href=''></link>
             </Head>
-            <header>
-                <Login className='cursor-pointer'>
-                    Login
-                </Login>
-            </header>
-            <main>
-                {children}
-            </main>
-            <footer>
-
-            </footer>
+            <div className='flex flex-col justify-between h-screen'>
+                <Header />
+                <main>
+                    {children}
+                </main>
+                <Footer />
+            </div>
         </>
     )
 }

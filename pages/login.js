@@ -1,9 +1,18 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
+import { useForm } from 'react-hook-form';
 import { FaGraduationCap } from 'react-icons/fa'
-import Layout from './Layout'
+import Layout from '../components/Layout';
+import PasswordInput from '../components/PasswordInput';
 
-function Login() {
+function login() {
+    const [email, setEmail] = useState();
+    const {
+        handleSubmit,
+        register,
+        formState: { errors }
+    } = useForm()
+
     return (
         <Layout>
             <section title='' className="flex justify-center mb-5   md:h-screen">
@@ -20,24 +29,17 @@ function Login() {
                                                 </span>
                                                 <h4 className="text-4xl font-semibold mt-1 mb-12 pb-1 ">FateCanos</h4>
                                             </div>
-                                            <form>
+                                            <form onSubmit={handleSubmit}>
                                                 <p className="mb-4">Por favor, entre com sua conta</p>
                                                 <div className="mb-4">
                                                     <input
                                                         type="email"
                                                         className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                                        id="exampleFormControlInput1"
                                                         placeholder="Email"
+
                                                     />
                                                 </div>
-                                                <div className="mb-4">
-                                                    <input
-                                                        type="password"
-                                                        className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                                        id="exampleFormControlInput1"
-                                                        placeholder="Senha"
-                                                    />
-                                                </div>
+                                                <PasswordInput placeholder='Senha' name='password'/>
                                                 <div className="text-center pt-1 mb-12 pb-1">
                                                     <button
                                                         className="inline-block px-6 bg-red-500 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
@@ -84,4 +86,4 @@ function Login() {
     )
 }
 
-export default Login
+export default login
