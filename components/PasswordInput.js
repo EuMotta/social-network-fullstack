@@ -17,14 +17,13 @@ const PasswordInput = ({ placeholder, value, onChange, onPaste, name }) => {
                 onChange={onChange}
                 onPaste={onPaste}
             />
-            <div className='cursor-pointer' onClick={togglePassword}>
+            <div className='cursor-pointer mx-2' onClick={togglePassword}>
                 {showPassword ? (
-                    <FaEye className='text-3xl relative right-10 ' />
+                    <FaEye className='text-3xl' />
                 ) : (
-                    <FaEyeSlash className='text-3xl relative right-10 ' />
+                    <FaEyeSlash className='text-3xl' />
                 )
                 }
-
             </div>
         </div>
     )
