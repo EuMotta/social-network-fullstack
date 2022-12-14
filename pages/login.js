@@ -6,6 +6,9 @@ import Layout from '../components/Layout';
 import PasswordInput from '../components/PasswordInput';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import { AiFillGoogleCircle, AiFillGithub } from 'react-icons/ai'
+import imgSvg from '../public/img/loginsvg.svg'
+import Image from 'next/image';
+
 
 function Login() {
     const [email, setEmail] = useState();
@@ -17,6 +20,9 @@ function Login() {
     /* handleGoogleSignin = google handler function */
     async function handleGoogleSignin() {
         signIn('google', { callbackUrl: 'http://localhost:3000' })
+    }
+    const submitHandler = ({ email, password }) => {
+        
     }
     return (
         <Layout title='Entrar'>
@@ -34,7 +40,7 @@ function Login() {
                                                 </span>
                                             </div>
                                             <h4 className="text-4xl flex flex-col items-center font-semibold mt-1 mb-12 pb-1 ">FateCanos</h4>
-                                            <form onSubmit={handleSubmit}>
+                                            <form onSubmit={handleSubmit(submitHandler)}>
                                                 <div className='flex items-center text-xl gap-x-4'>
                                                     Conecte-se com:
                                                     <ul className='flex gap-x-4'>
@@ -42,23 +48,42 @@ function Login() {
                                                             <button type='button' onClick={handleGoogleSignin}><AiFillGoogleCircle className='text-4xl transition-all hover:text-red-600 hover:scale-105 ' /></button>
                                                         </li>
                                                         <li className='input-button'>
-                                                            <button type='submit'><AiFillGithub className='text-4xl transition-all hover:text-red-600 hover:scale-105 '/></button>
+                                                            <button type='button'><AiFillGithub className='text-4xl transition-all hover:text-red-600 hover:scale-105 ' /></button>
                                                         </li>
                                                     </ul>
                                                 </div>
                                                 <p className="mb-4">Por favor, entre com sua conta</p>
                                                 <div className="mb-4">
                                                     <input
+                                                        id='email'
                                                         type="email"
+                                                        {...register("email", {
+                                                            required: "Por favor, digite o seu e-mail.",
+                                                            pattern: {
+                                                                value:
+                                                                    /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/,
+                                                                message: "Por favor, digite um e-mail válido.",
+                                                            },
+                                                        })}
+
                                                         className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-red-600 focus:outline-none"
                                                         placeholder="Email"
+
                                                     />
+                                                    {errors.email && (<div className='text-red-500'>{errors.email.message}</div>)}
                                                 </div>
-                                                <PasswordInput placeholder='Senha' name='password' />
+                                                <PasswordInput placeholder='Senha' id='password' name='password' 
+                                                {...register("password", {
+                                                    required: "Por favor, digite a sua senha.",
+                                                   
+                                                })}
+                                                
+                                                />
+                                                {errors.password && (<div className='text-red-500'>{errors.password.message}</div>)}
                                                 <div className="text-center pt-1 mb-12 pb-1">
                                                     <button
                                                         className="inline-block px-6 bg-red-500 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
-                                                        type="button"
+                                                        type="submit"
                                                         data-mdb-ripple="true"
                                                         data-mdb-ripple-color="light"
                                                     >
@@ -82,13 +107,21 @@ function Login() {
                                         </div>
                                     </div>
                                     <div
-                                        className="lg:w-6/12 flex items-center lg:rounded-r-lg rounded-b-lg lg:rounded-bl-none bg-red-500"
+                                        className="lg:w-6/12 flex pt-5 lg:rounded-r-lg rounded-b-lg lg:rounded-bl-none bg-red-500"
                                     >
-                                        <div className="text-white px-4 py-6 md:p-12 md:mx-6">
-                                            <h4 className="text-2xl font-semibold mb-6">Sua rede social para estudar!</h4>
-                                            <p className="text-lg">
-                                                Conheça outros fatecanos, compartilhe seus projetos, ideias e ajude a crescer essa comunidade de tecnologia!
-                                            </p>
+                                        <div className="text-white ">
+                                            <Image
+                                                src={imgSvg}
+                                                alt='logo'
+                                                className='upDownAnimation'
+                                            />
+                                            <div className='px-5 text-center'>
+                                                <h4 className="text-2xl font-semibold mb-6">Sua rede social para estudar!</h4>
+                                                <p className=" font-serif text-xl">
+                                                    Conheça outros fatecanos, compartilhe seus projetos, ideias e ajude a crescer essa comunidade de tecnologia!
+                                                </p>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>

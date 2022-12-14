@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 
-const PasswordInput = ({ placeholder, value, onChange, onPaste, name }) => {
+const PasswordInput = ({ placeholder,id, value, onChange, onPaste, name }) => {
     const [showPassword, setShowPassword] = useState(false)
     const togglePassword = () => {
         setShowPassword(!showPassword)
@@ -16,8 +16,11 @@ const PasswordInput = ({ placeholder, value, onChange, onPaste, name }) => {
                 value={value}
                 onChange={onChange}
                 onPaste={onPaste}
+                id={id}
+                
             />
-            <div className='cursor-pointer bg-red-50  p-1' >
+            
+            <div className='cursor-pointer bg-slate-200  p-1' >
                 {showPassword ? (
                     <FaEye className='text-3xl'onClick={togglePassword} />
                 ) : (
