@@ -1,8 +1,11 @@
+import { useSession } from 'next-auth/react';
 import Link from 'next/link'
 import React from 'react'
 import Hero from './hero'
+import LeftSide from './LeftSide'
 
 function Header() {
+    const {data:session} = useSession();
     return (
         <>
             <nav className="bg-white fixed px-2 sm:px-4 py-2.5 dark:bg-gray-900 w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
@@ -20,6 +23,7 @@ function Header() {
                 </div>
             </nav>
             <Hero className="mt-96" />
+            {session?<LeftSide/> :''}
         </>
     )
 }

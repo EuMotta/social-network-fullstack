@@ -9,6 +9,7 @@ function User() {
     }
     return (
         <>
+
             <h1 className='text-4xl'>Informações do usuário</h1>
             <div>
                 <h1>Nome: {session.user.name}</h1>
