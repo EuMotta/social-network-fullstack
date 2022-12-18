@@ -2,7 +2,7 @@ import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import React, { useState } from 'react'
 import Footer from './Footer';
-import { FcHome } from 'react-icons/fc'
+import { AiOutlineHome } from 'react-icons/ai'
 import { MdOutlineInbox } from 'react-icons/md'
 import { BiShoppingBag } from 'react-icons/bi'
 import { FiSettings } from 'react-icons/fi'
@@ -12,7 +12,7 @@ const side_links = [
     {
         path: "/",
         display: "Home",
-        icon: FcHome
+        icon: AiOutlineHome
     },
 
     {
@@ -47,15 +47,15 @@ function LeftSide() {
         <div className="absolute pt-14">
             <div
                 className={` ${open ? "w-20" : "w-55 "
-                    } flex flex-col h-screen p-3 bg-gray-100 shadow duration-300`}
+                    } flex flex-col h-screen p-3  shadow duration-300`}
             >
                 <div className="space-y-3">
                     <div className='flex flex-col justify-between '>
                         <div className="flex items-center justify-between">
-                            <h2 className="text-xl font-bold text-black">
-                                Navegar
-                            </h2>
-                            <button onClick={() => setOpen(!open)}>
+                            <h1 className="text-xl font-bold text-black">
+                                FateCanos
+                            </h1>
+                            {/* <button onClick={() => setOpen(!open)}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="w-6 h-6 text-black"
@@ -70,9 +70,9 @@ function LeftSide() {
                                         d="M4 6h16M4 12h8m-8 6h16"
                                     />
                                 </svg>
-                            </button>
+                            </button> */}
                         </div>
-                        <div className="relative">
+                        <div className="relative mt-5 ">
                             <span className="absolute inset-y-0 left-0 flex items-center py-4">
                                 <button
                                     type="submit"
@@ -97,8 +97,8 @@ function LeftSide() {
                             <input
                                 type="search"
                                 name="Search"
-                                placeholder="Search..."
-                                className="w-full py-2 pl-10 text-sm rounded-md focus:outline-none"
+                                placeholder="Pesquisar"
+                                className="w-full shadow-sm py-2 pl-10 text-sm shadow-slate-300 rounded-full px-2 focus:outline-none"
                             />
                         </div>
                         <div className="flex-1">
@@ -107,7 +107,7 @@ function LeftSide() {
                                     side_links.map((item, index) => (
                                         <ul key={index}>
                                             <Link href={item.path}>
-                                                <li className='cursor-pointer transition-all  hover:bg-slate-200 hover:shadow-slate-300 p-2 mx-3 my-2 rounded-sm flex items-center gap-3'>
+                                                <li className='cursor-pointer transition-all hover:rounded-full  hover:bg-slate-50 hover:shadow-slate-300 p-2 mx-3 my-2 rounded-sm flex items-center gap-3'>
                                                     <item.icon className='text-2xl' />
                                                     {item.display}
                                                 </li>
